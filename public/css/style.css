@@ -1,0 +1,538 @@
+::-webkit-scrollbar
+{
+    width:5px;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: rgba(0,0,0,.7);
+}
+
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+}
+
+body
+{
+    min-height: 100vh;
+    background-color: #efefef;
+    overflow-x: hidden;
+}
+
+header
+{
+    padding-top: 20px;
+    min-height: 7vh;
+    display: grid;
+    grid-template-columns: 12vw 68vw 20vw;
+    
+}
+
+a
+{
+    text-decoration: none;
+}
+
+header .logo
+{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    
+}
+
+header .logo a
+{
+    font-size: 1.2rem;
+    color:rgba(0,0,0,.8);
+}
+
+
+
+
+
+header .nav_links
+{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    font-size: .86rem;
+    padding: 0 25%;
+    padding-left: 35%;
+}
+
+header .nav_links a
+{
+    color:gray;
+}
+
+header .nav_links a:hover
+{
+    color:black;
+}
+
+
+header .social_links
+{
+    display: flex;    
+    align-items: center;
+    justify-content: space-around;
+    color:rgba(0,0,0,.8);
+}
+
+
+.hero
+{
+    min-height: 93vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    position: relative;
+}
+
+
+
+.hero .hero_text
+{
+    text-align: left;
+    position: absolute;
+    top:75%;
+}
+
+.hero .hero_text h1
+{
+    font-size: 4rem;
+    color:rgba(0,0,0,.7);
+    text-shadow: -1px -1px 0px gray;
+}
+
+
+.hero .hero_text h6
+{
+    font-weight: 100;
+    color:gray;
+}
+
+.hero .hero_text h6.left_text
+{
+    position: absolute;
+    left:-10%;
+    top:50%;
+    transform: rotate(90deg);
+    font-size: .8rem;
+    color:gray;
+}
+
+@media (max-width:1000px)
+{
+    html
+    {
+        font-size: 80%;
+    }
+
+    header
+    {
+        grid-template-columns: 15vw 70vw 15vw;
+    }
+
+    header .nav_links
+    {
+        padding-left: 40%;
+    }
+
+    header .nav_links a
+    {
+        margin: 0 12px;
+    }
+
+
+    header .logo a
+    {
+        display: flex;
+        padding-left: 100%;
+    }    
+
+
+}
+
+@media (max-width:500px)
+{
+
+    .hero .hero_text
+    {
+        top:80%;
+    }
+    
+    .hero .hero_text h1
+    {
+        font-size: 3rem;
+    }
+
+    .hero .hero_text h6.left_text
+    {
+        font-size: .6rem;
+    }
+
+}
+
+.featured_posts
+{
+    min-height: 100vh;
+    margin-top: 10%;
+    padding: 100px;
+}
+
+.featured_posts h2,
+.allPosts h2
+{
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+
+.featured_posts h2::after,
+.allPosts h2::after
+{
+    content:"Featured Posts";
+    position: absolute;
+    bottom:-100%;
+    right:0;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: rgba(0,0,0,.8);
+    -webkit-text-stroke-width: .5px;
+}
+
+.allPosts h2::after,
+.allPosts.current h2::after
+{
+    content:"Post";
+}
+
+.featured_posts .posts
+{
+    margin-top: 10%;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap:100px;
+}
+
+.featured_posts .posts .post
+{
+    min-height:max-content;
+    max-height:500px;
+    max-width: 300px;
+    margin:10px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 2px gray;
+}
+
+.featured_posts .posts .post img
+{
+    width:100%;
+    height: 300px;
+    object-fit: cover;
+    transition: .2s ease;
+}
+
+.featured_posts .posts .post img:hover
+{
+    transform: scale(.9);
+}
+
+
+.featured_posts .posts .post p
+{
+    padding-top: 10px;
+    padding-left: 5px;
+    color:gray;
+    font-size: .8rem;
+}
+
+.featured_posts .posts .post a
+{
+    display: block;
+    margin: 0px auto;
+    margin-top: 10px;
+    font-size: .9rem;
+    background-color: rgba(0,0,0,.8);
+    color:white;
+    padding: 10px;
+    text-align: center;
+    transition: .2s ease;
+}
+
+
+.featured_posts .posts .post a:hover
+{
+    background-color: white;
+    color:black;
+}
+
+.allPosts 
+{
+    padding: 80px;
+}
+
+.allPosts h2
+{
+    margin-top:5%;
+    margin-bottom:10%;
+}
+
+.allPosts .container
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.view_posts 
+{
+    width:50%;
+    margin-right:10%;
+    background-color: white;
+    padding: 10px;
+}
+
+.view_posts .post_item h1
+{
+    margin: 10% 0;
+}
+
+.view_posts .post_item p
+{
+    word-wrap: break-word;
+    text-align: left;
+}
+
+
+.view_posts .post_item .post_img
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.view_posts .post_item .post_img img
+{
+    width:100%;
+    height:500px;
+    object-fit: cover;
+}
+
+.recent_posts
+{
+
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    height: max-content;
+}
+
+.recent_posts h2
+{
+    font-size: .97rem;
+
+}
+
+.recent_posts h2::after
+{
+    content:"Recent Posts" !important;
+}
+
+.current_posts .cposts .post_item,
+.recent_posts .rposts .post_item
+{
+    border-bottom: 1px solid rgb(174, 173, 173);
+    padding-bottom: 14px;
+    margin-bottom: 10%;
+}
+
+.recent_posts .rposts .post_item
+{
+    height: 100px;
+    padding: 10px;
+}
+
+.current_posts .cposts .post_item
+{
+    height: 200px;
+    border-bottom:none;
+}
+
+
+.current_posts .cposts .post_item .post_content
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.current_posts .cposts .post_item .post_content a
+{
+    width: max-content;
+}
+
+.current_posts .cposts .post_content h3
+{
+    word-wrap: break-word;
+}
+
+
+.current_posts .cposts .post_item p,
+.recent_posts .rposts .post_item p
+{
+    font-size: .8rem;
+    color:gray;
+    padding: 10px;
+    position: relative;
+    left:10px;
+    word-wrap: break-word;
+}
+
+.current_posts .cposts .post_item a,
+.recent_posts .rposts .post_item a
+{
+    position: relative;
+    left:10px;
+    font-size: .8rem;
+    background-color: orangered;
+    color:white;
+    padding: 5px;
+}
+
+.current_posts .cposts .post_item img,
+.recent_posts .rposts .post_item img
+{
+    width:20%;
+    height: 80px;
+    object-fit: cover;
+    float: left;
+}
+
+.current_posts .cposts .post_item img
+{
+    height: 200px;
+    margin: 10px;
+}
+
+.compose 
+{
+    padding: 80px;
+}
+
+.compose h2
+{
+    margin-top: 20px;
+    margin-bottom:5%;
+}
+
+.compose form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.compose form input
+{
+    margin-bottom: 5%;
+    padding: 10px;
+}
+
+.compose form textarea
+{
+    margin-bottom: 5%;
+    min-height:200px;
+    resize: none;
+    padding: 10px;
+
+}
+
+.compose form button
+{
+    width: max-content;
+    padding: 10px 20px;
+    background-color: orangered;
+    color:white;
+    border:none;
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+.compose form label
+{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border:1px solid gray;
+    color:gray;
+}
+
+.compose form label img
+{
+    width:10%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+
+
+
+@media (max-width:1000px)
+{
+    .allPosts .container
+    {
+        flex-direction: column;
+    }
+ 
+    .allPosts .container .view_posts
+    {
+        width:100%;
+        margin-bottom: 10%;
+    }
+    .current_posts .cposts .post_item
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+    }
+
+    .current_posts .cposts .post_item img
+    {
+        width:50%;
+        height: max-content;
+    }
+
+    
+}
+
+@media (max-width:500px)
+{
+    
+    .allPosts 
+    {
+        padding: 20px;
+    }    
+
+    .compose
+    {
+        margin-top:10%;
+        padding: 10px;
+    }
+
+    .featured_posts
+    {
+        padding: 20px;
+    }
+
+    
+}

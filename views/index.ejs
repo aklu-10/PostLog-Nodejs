@@ -1,0 +1,46 @@
+<%-include("partials/header")%>
+
+
+<section class="hero">
+
+    <img src="/img/hero_img.png" alt="rectarc_shoes">
+    <div class="hero_text">
+        <h1>NEW PRODUCT</h1>
+        <h6>AT RECTARC</h6>
+        <h6 class="left_text">FEATURED</h6>
+    </div>
+
+</section>
+
+<section class="featured_posts">
+
+    <h2>Featured Posts</h2>
+
+    <div class="posts">
+    
+       <% if(allPosts.length!=0){ %>
+        <% for(let i=0;i<allPosts.length;i++){ %>
+
+        <div class="post">
+            <img src="/uploads/<%=allPosts[i].image%>" alt="">
+            <p><%=allPosts[i].content>20?allPosts[i].content.slice(0,20):allPosts[i].content%></p>
+            <a href="/posts/<%=allPosts[i].title%>">Readmore</a>
+        </div>
+
+        <% } } else {%>
+
+            <div>
+                <p style="font-size:3rem;color:rgba(0,0,0,.2);margin-top:50%">Add Some Posts</p>
+                <a href="/compose" style="display:block;padding:10px;background-color: orangered; color:white; width:max-content; margin: 0 auto;padding: 10px 20px;">Add</a>
+            
+            </div>
+
+        <% } %>
+
+    </div>
+
+</section>
+
+
+
+<%-include("partials/footer")%>

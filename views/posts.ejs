@@ -1,0 +1,35 @@
+    <%- include("partials/header") %>
+
+
+<section class="allPosts">
+    
+    <h2>Posts</h2>
+    
+    <div class="current_posts">
+
+        <div class="cposts">
+            
+       <% if(allpostData.length!=0){ %>
+
+            <% for(let i=allpostData.length-1;i>=0;i--){ %>
+
+                <div class="post_item">
+                    <img src="/uploads/<%=allpostData[i].image%>" alt="recent_post">
+                    <div class="post_content">
+                        <h3 style="margin-left: 2%;" ><%=allpostData[i].title%></h3>
+                        <p><%=allpostData[i].content.length>250?allpostData[i].content.slice(0,250)+"...":allpostData[i].content%></p>
+                        <a href="/posts/<%=allpostData[i].title%>">Readmore</a>
+                    </div>
+                </div>
+    
+                <% } } else{ %>
+                    
+                    <p style="font-size: 2rem; color:rgba(0,0,0,.2)">NO POST FOUND</p>
+                    
+                    <% } %>
+                    
+            </div>
+    </div>
+
+</section>
+

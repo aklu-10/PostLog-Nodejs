@@ -1,0 +1,48 @@
+<%- include("partials/header") %>
+
+
+<section class="allPosts current">
+    
+    <h2>Post / <%=currentPost.title%></h2>
+
+    <div class="container">
+    <section class="view_posts">
+
+    <div class="post_item">
+
+    <h1><%=currentPost.title%></h1>
+    <div class="post_img">
+        <img src="/uploads/<%=currentPost.image%>" alt="post_image">
+    </div>
+    <p><%=currentPost.content%></p>
+    </div>        
+
+
+</section>
+
+
+<aside class="recent_posts">
+
+    <h2>Recent Posts</h2>
+
+    <div class="rposts">
+
+        <% for(let i=0;i<recentPost.length;i++){ %>
+
+            <div class="post_item">
+                <img src="/uploads/<%=recentPost[i].image%>" alt="recent_post">
+                <h5 style="position: relative; left:10px"><%=recentPost[i].title%></h5>
+                <p><%=recentPost[i].content.length>20?recentPost[i].content.slice(0,20):recentPost[i].content%></p>
+                <a href="/posts/<%=recentPost[i].title%>">Readmore</a>
+            </div>
+    
+
+        <% } %>
+        
+
+    </div>
+
+</aside>
+</div>
+</section>
+

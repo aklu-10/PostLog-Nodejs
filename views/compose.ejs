@@ -1,0 +1,47 @@
+<%-include("partials/header")%>
+
+<section class="compose">
+
+    <h2>COMPOSE A POST</h2>
+    <form action="/compose" method="post" enctype="multipart/form-data">
+
+        <input type="text" placeholder="Title" name="postTitle" required>
+
+        <textarea placeholder="Describe your post" name="postContent" required></textarea> 
+
+        <label for="myFile">
+            <img class="img_uploaded" src="/img/select_post.png" alt="select_postimage">
+            <p class="fileName">Select a post picture</p>
+        </label>
+        <input hidden id="myFile" type="file" name="postFile" accept="image/*">
+
+        <button type="submit">Publish</button>
+
+    </form>
+
+</section>
+
+
+<script>
+
+
+    let file=document.querySelector("#myFile");
+    let uploaded_image="";
+    file.addEventListener("change",function(e)
+    {
+        let reader=new FileReader();
+        reader.addEventListener("load",function()
+        {
+            uploaded_image=reader.result;
+            document.querySelector(".img_uploaded").src=uploaded_image;
+
+        })
+        
+        reader.readAsDataURL(this.files[0]);
+
+        document.querySelector(".fileName").innerHTML=e.target.value;
+        
+    })
+</script>
+
+<%-include("partials/footer")%>
